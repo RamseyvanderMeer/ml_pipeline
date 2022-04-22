@@ -74,6 +74,7 @@ Running all Models
 Author(s)
 ===============
 * James Kabbes
+* Ramsey van der Meer
 
 
 
@@ -81,7 +82,6 @@ Author(s)
 
 
 .. toctree::
-   :hidden:
 
    Home page <self>
    ml_pipeline <_autosummary/ml_pipeline>
