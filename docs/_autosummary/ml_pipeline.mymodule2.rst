@@ -9,6 +9,14 @@ ml\_pipeline.mymodule2
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
+   
+      add
+   
    
 
    

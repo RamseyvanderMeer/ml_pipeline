@@ -1,0 +1,15 @@
+Defaulting to user installation because normal site-packages is not writeable
+Collecting kabbes_py_starter
+  Downloading kabbes_py_starter-0.7.0-py3-none-any.whl (5.7 kB)
+Collecting pyperclip
+  Downloading pyperclip-1.8.2.tar.gz (20 kB)
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Building wheels for collected packages: pyperclip
+  Building wheel for pyperclip (setup.py): started
+  Building wheel for pyperclip (setup.py): finished with status 'done'
+  Created wheel for pyperclip: filename=pyperclip-1.8.2-py3-none-any.whl size=11107 sha256=838409094cbfdfa025a74ca23c1609f63067f7efc018020cbb3d0258ca359f2b
+  Stored in directory: /home/ramsey/.cache/pip/wheels/7f/1a/65/84ff8c386bec21fca6d220ea1f5498a0367883a78dd5ba6122
+Successfully built pyperclip
+Installing collected packages: pyperclip, kabbes_py_starter
+Successfully installed kabbes_py_starter-0.7.0 pyperclip-1.8.2
