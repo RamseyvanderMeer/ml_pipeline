@@ -4,18 +4,33 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 
 def preprocess( Model ):
+    """_summary_
+
+    Args:
+        Model (_type_): _description_
+    """
 
     # setup the Model features and target
     Model.df_features = Model.df_pre.drop( [ Model.target_ncol ], axis = 1 )
     Model.df_target = Model.df_pre[ Model.target_ncol ]
 
 def split_features_and_target( Model ):
+    """_summary_
+
+    Args:
+        Model (_type_): _description_
+    """
 
     # setup the Model features and target
     Model.df_features = Model.df_pre.drop( [ Model.target_ncol ], axis = 1 )
     Model.df_target = Model.df_pre[ Model.target_ncol ]
 
 def postprocess( Model ):
+    """_summary_
+
+    Args:
+        Model (_type_): string
+    """
 
     Model.df_results_pre = Model.df_results_propensity.join( Model.df_pre, how = 'left' )
 
