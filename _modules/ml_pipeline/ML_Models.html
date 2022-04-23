@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ml_pipeline.ML_Models &mdash; ml-pipeline 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/readthedocs-custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> ml-pipeline
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/ml_pipeline.html">ml_pipeline</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ml-pipeline</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>ml_pipeline.ML_Models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ml_pipeline.ML_Models</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">ml_pipeline</span>
+<span class="kn">import</span> <span class="nn">ml_pipeline.ML_support</span> <span class="k">as</span> <span class="nn">mlsf</span>
+<span class="kn">import</span> <span class="nn">ml_pipeline.ML_params</span> <span class="k">as</span> <span class="nn">mlp</span>
+
+<span class="c1">### Analytics-Packages</span>
+<span class="kn">import</span> <span class="nn">analytics_packages.custom_xlwings</span> <span class="k">as</span> <span class="nn">cxw</span>
+<span class="kn">import</span> <span class="nn">dir_ops.dir_ops</span> <span class="k">as</span> <span class="nn">do</span>
+<span class="kn">import</span> <span class="nn">py_starter.py_starter</span> <span class="k">as</span> <span class="nn">ps</span>
+<span class="kn">import</span> <span class="nn">database_connections.sql_support_functions</span> <span class="k">as</span> <span class="nn">ssf</span>
+
+<span class="c1">### import other</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">file_Path</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span> <span class="p">)</span>
+
+
+<div class="viewcode-block" id="Models"><a class="viewcode-back" href="../../_autosummary/ml_pipeline.ML_Models.Models.html#ml_pipeline.ML_Models.Models">[docs]</a><span class="k">class</span> <span class="nc">Models</span><span class="p">(</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_ParentClass</span><span class="o">.</span><span class="n">ML_ParentClass</span> <span class="p">):</span>
+
+    <span class="n">SUFFIX</span> <span class="o">=</span> <span class="s1">&#39;_MODELS&#39;</span>
+
+    <span class="n">DEFAULT_KWARGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Model_class_pointer&#39;</span><span class="p">:</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_Model</span><span class="o">.</span><span class="n">Model</span><span class="p">,</span>
+    <span class="s1">&#39;Input_Files_class_pointer&#39;</span><span class="p">:</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_Input_Files</span><span class="o">.</span><span class="n">Input_Files</span><span class="p">,</span>
+    <span class="s1">&#39;Input_File_class_pointer&#39;</span><span class="p">:</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_Input_File</span><span class="o">.</span><span class="n">Input_File</span><span class="p">,</span>
+    <span class="s1">&#39;Features_class_pointer&#39;</span><span class="p">:</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_Features</span><span class="o">.</span><span class="n">Features</span><span class="p">,</span>
+    <span class="s1">&#39;Feature_class_pointer&#39;</span><span class="p">:</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_Feature</span><span class="o">.</span><span class="n">Feature</span><span class="p">,</span>
+
+    <span class="s1">&#39;user_profile&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s1">&#39;database_conn_params&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s1">&#39;database_conn&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s1">&#39;parquet_engine&#39;</span> <span class="p">:</span> <span class="n">mlp</span><span class="o">.</span><span class="n">PARQUET_ENGINE</span><span class="p">,</span>
+    <span class="s1">&#39;default_feature_flag&#39;</span><span class="p">:</span> <span class="n">mlp</span><span class="o">.</span><span class="n">DEFAULT_FEATURE_FLAG</span><span class="p">,</span>
+    <span class="s1">&#39;feature_flag_codes&#39;</span><span class="p">:</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURE_FLAG_CODES</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="n">UPDATED_OPTIONS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Open Model&#39;</span><span class="p">,</span> <span class="s1">&#39;open_Child_user&#39;</span> <span class="p">],</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Run Models&#39;</span><span class="p">,</span> <span class="s1">&#39;run_Models&#39;</span> <span class="p">],</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Make Model&#39;</span><span class="p">,</span> <span class="s1">&#39;make_Model_user&#39;</span> <span class="p">],</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Delete Model&#39;</span><span class="p">,</span> <span class="s1">&#39;delete_Model_user&#39;</span> <span class="p">],</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Delete Results&#39;</span><span class="p">,</span> <span class="s1">&#39;delete_results&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">repo_Dir</span><span class="p">,</span> <span class="o">**</span><span class="n">override_kwargs</span> <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_KWARGS</span><span class="p">[</span><span class="s1">&#39;Models_class_pointer&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Models</span>
+
+        <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_ParentClass</span><span class="o">.</span><span class="n">ML_ParentClass</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">DEFAULT_KWARGS</span><span class="p">,</span> <span class="o">**</span><span class="n">override_kwargs</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Dir</span> <span class="o">=</span> <span class="n">repo_Dir</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Models</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1">#key is the Model name, value is the Model Object</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_Dirs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_Paths</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gen_excel</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_import_from_excel</span><span class="p">()</span>
+
+        <span class="c1">### Generate the templates from the newly found excel data, if the files don&#39;t exist</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gen_child_classes</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_gen_main</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load_Models</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_export_to_excel</span><span class="p">()</span>
+
+        <span class="c1">###</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">print_imp_atts</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;returns the number of Models in the class instance &#39;&#39;&#39;</span>
+
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="p">[</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="bp">self</span><span class="o">.</span><span class="n">i</span><span class="p">]</span> <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_set_Dirs</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;Input_File_child_Dir = Dir( &#39;asdf/asdf/asdf&#39; ) &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Dirs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">relative_dir_key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mlp</span><span class="o">.</span><span class="n">relative_dirs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+            <span class="n">relative_dir_value</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">relative_dirs</span><span class="p">[</span> <span class="n">relative_dir_key</span> <span class="p">]</span>
+            <span class="n">Dir_key</span> <span class="o">=</span> <span class="n">relative_dir_key</span> <span class="o">+</span> <span class="s1">&#39;_Dir&#39;</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_attr</span><span class="p">(</span> <span class="n">Dir_key</span> <span class="p">):</span> <span class="c1">#if the user didn&#39;t override with their own Dir</span>
+
+                <span class="c1"># algorithm_Dir = Dir( self.repo_dir.join( &#39;Algorithms&#39; )   )</span>
+                <span class="n">Dir_value</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Dir</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">relative_dir_value</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_attr</span><span class="p">(</span> <span class="n">Dir_key</span><span class="p">,</span> <span class="n">Dir_value</span> <span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Dir_value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_attr</span><span class="p">(</span> <span class="n">Dir_key</span> <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">Dirs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">Dir_value</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_data_Dirs</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_Dirs</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_set_data_Dirs</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;data_Dirs = { &#39;business_users&#39;: Dir(self.data_Dir.join(&#39;Business Users&#39;)) } &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">relative_data_dir_key</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mlp</span><span class="o">.</span><span class="n">relative_data_dirs</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+
+            <span class="n">relative_data_dir_value</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">relative_data_dirs</span><span class="p">[</span> <span class="n">relative_data_dir_key</span> <span class="p">]</span>
+            <span class="n">Dir_value</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Dir</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_Dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">relative_data_dir_value</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="n">relative_data_dir_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">Dir_value</span>
+
+    <span class="k">def</span> <span class="nf">_create_Dirs</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;initialize the Dirs if they do not already exist &#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">Dir</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dirs</span><span class="p">:</span>
+            <span class="n">Dir</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span> <span class="n">key</span> <span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_set_Paths</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;Set the paths of various child Paths&#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">class_key</span> <span class="ow">in</span> <span class="n">mlp</span><span class="o">.</span><span class="n">CLASSES_KEYS</span><span class="p">:</span>
+
+            <span class="c1"># ML_Features.Features</span>
+            <span class="n">class_pointer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_attr</span><span class="p">(</span> <span class="n">class_key</span> <span class="o">+</span> <span class="s1">&#39;_class_pointer&#39;</span> <span class="p">)</span>
+            <span class="n">suffix</span> <span class="o">=</span> <span class="n">class_pointer</span><span class="o">.</span><span class="n">SUFFIX</span>
+
+            <span class="c1"># repo_Dir/name_FEATURES.py</span>
+            <span class="n">child_class_Path</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">suffix</span> <span class="o">+</span> <span class="s1">&#39;.py&#39;</span> <span class="p">)</span> <span class="p">)</span>
+
+            <span class="c1"># child_Features_class_Path = child_class_Path</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_attr</span><span class="p">(</span> <span class="s1">&#39;child_&#39;</span> <span class="o">+</span> <span class="n">class_key</span> <span class="o">+</span> <span class="s1">&#39;_class_Path&#39;</span><span class="p">,</span> <span class="n">child_class_Path</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">excel_Path</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">mlp</span><span class="o">.</span><span class="n">MODEL_INPUTS_SUFFIX</span> <span class="o">+</span> <span class="s1">&#39;.xlsx&#39;</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_py_Path</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span><span class="s1">&#39;main_py&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">root</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="p">])</span> <span class="o">+</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span><span class="s1">&#39;main_py&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extension</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">main_ipy_Path</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Dir</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="s1">&#39;_&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span><span class="s1">&#39;main_ipy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">root</span> <span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="p">])</span> <span class="o">+</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span><span class="s1">&#39;main_ipy&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">extension</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_gen_child_classes</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;generate child classes from templates&#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">class_key</span> <span class="ow">in</span> <span class="n">mlp</span><span class="o">.</span><span class="n">CLASSES_KEYS</span><span class="p">:</span>
+
+            <span class="c1"># template_Paths[ &#39;Features&#39; ]</span>
+            <span class="n">template_Path</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span> <span class="n">class_key</span> <span class="p">]</span>
+
+            <span class="c1"># self.child_Features_class_Path</span>
+            <span class="n">inst_Path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_attr</span><span class="p">(</span> <span class="s1">&#39;child_&#39;</span> <span class="o">+</span> <span class="n">class_key</span> <span class="o">+</span> <span class="s1">&#39;_class_Path&#39;</span> <span class="p">)</span>
+
+            <span class="n">mlsf</span><span class="o">.</span><span class="n">gen_from_template</span><span class="p">(</span> <span class="n">template_Path</span><span class="p">,</span> <span class="n">inst_Path</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_gen_excel</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="n">mlsf</span><span class="o">.</span><span class="n">gen_from_template</span><span class="p">(</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span><span class="s1">&#39;model_inputs&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">excel_Path</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_gen_main</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="n">mlsf</span><span class="o">.</span><span class="n">gen_from_template</span><span class="p">(</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span><span class="s1">&#39;main_py&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_py_Path</span><span class="p">,</span> <span class="n">formatting_dict</span><span class="o">=</span><span class="p">{</span> <span class="s2">&quot;MODELS_PATH_ROOT&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_Models_class_Path</span><span class="o">.</span><span class="n">root</span> <span class="p">}</span> <span class="p">)</span>
+        <span class="n">mlsf</span><span class="o">.</span><span class="n">gen_from_template</span><span class="p">(</span> <span class="n">mlp</span><span class="o">.</span><span class="n">template_Paths</span><span class="p">[</span><span class="s1">&#39;main_ipy&#39;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_ipy_Path</span><span class="p">,</span> <span class="n">formatting_dict</span><span class="o">=</span><span class="p">{</span> <span class="s2">&quot;MODELS_PATH_ROOT&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">child_Models_class_Path</span><span class="o">.</span><span class="n">root</span> <span class="p">}</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="Models.print_imp_atts"><a class="viewcode-back" href="../../_autosummary/ml_pipeline.ML_Models.Models.html#ml_pipeline.ML_Models.Models.print_imp_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_imp_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">):</span> <span class="c1">#if print_off==True, returns None, else: returns str</span>
+
+        <span class="n">atts_and_display_names</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Dir&#39;</span><span class="p">:</span> <span class="s1">&#39;Dir&#39;</span>
+        <span class="p">}</span>
+
+        <span class="n">string</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_imp_atts_helper</span><span class="p">(</span> <span class="n">atts_and_display_names</span> <span class="o">=</span> <span class="n">atts_and_display_names</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="n">string</span> <span class="o">+=</span> <span class="s1">&#39;Models:</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+        <span class="k">for</span> <span class="n">Model</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">+=</span> <span class="n">Model</span><span class="o">.</span><span class="n">print_one_line_atts</span><span class="p">(</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="n">string</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_string</span><span class="p">(</span> <span class="n">string</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="n">print_off</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Models.print_one_line_atts"><a class="viewcode-back" href="../../_autosummary/ml_pipeline.ML_Models.Models.html#ml_pipeline.ML_Models.Models.print_one_line_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_one_line_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">leading_string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="p">):</span>  <span class="c1">#if print_off==True, returns None, else: returns str</span>
+
+        <span class="n">atts_and_display_names</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Dir&#39;</span><span class="p">:</span> <span class="s1">&#39;Dir&#39;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_one_line_atts_helper</span><span class="p">(</span> <span class="n">atts_and_display_names</span> <span class="o">=</span> <span class="n">atts_and_display_names</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="n">print_off</span><span class="p">,</span> <span class="n">leading_string</span> <span class="o">=</span> <span class="n">leading_string</span> <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">delete_Model</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">Model_inst</span> <span class="p">):</span>
+
+        <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="p">[</span> <span class="n">Model_inst</span><span class="o">.</span><span class="n">name</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_export_to_excel</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">delete_Model_user</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="n">Model_inst</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_Child_user</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">Model_inst</span> <span class="o">!=</span>  <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">delete_Model</span><span class="p">(</span> <span class="n">Model_inst</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">make_Model</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">Model_params</span> <span class="p">):</span>
+
+        <span class="n">class_pointer_params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Input_Files_class_pointer&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_attr</span><span class="p">(</span><span class="s1">&#39;Input_Files_class_pointer&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;Input_File_class_pointer&#39;</span><span class="p">:</span>  <span class="bp">self</span><span class="o">.</span><span class="n">get_attr</span><span class="p">(</span><span class="s1">&#39;Input_File_class_pointer&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;Features_class_pointer&#39;</span><span class="p">:</span>    <span class="bp">self</span><span class="o">.</span><span class="n">get_attr</span><span class="p">(</span><span class="s1">&#39;Features_class_pointer&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;Feature_class_pointer&#39;</span><span class="p">:</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_attr</span><span class="p">(</span><span class="s1">&#39;Feature_class_pointer&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">new_Model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Model_class_pointer</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">Model_params</span><span class="p">,</span> <span class="o">**</span><span class="n">class_pointer_params</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_add_Model</span><span class="p">(</span> <span class="n">new_Model</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">print_off</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Adding new Model:&#39;</span><span class="p">)</span>
+            <span class="n">new_Model</span><span class="o">.</span><span class="n">print_atts</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">make_Model_user</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a name for the new Model: &#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">):</span>
+                <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;That Model name has already been used&#39;</span><span class="p">)</span>
+                <span class="k">continue</span>
+            <span class="k">break</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">make_Model</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_export_excel</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_add_Model</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">new_Model</span> <span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="p">[</span> <span class="n">new_Model</span><span class="o">.</span><span class="n">name</span> <span class="p">]</span> <span class="o">=</span> <span class="n">new_Model</span>
+
+<div class="viewcode-block" id="Models.load_Models"><a class="viewcode-back" href="../../_autosummary/ml_pipeline.ML_Models.Models.html#ml_pipeline.ML_Models.Models.load_Models">[docs]</a>    <span class="k">def</span> <span class="nf">load_Models</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;Loads Models from the Parameters sheet on the Excel Model Inputs file&#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df_params</span><span class="o">.</span><span class="n">columns</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">PARAMETER_COL</span><span class="p">:</span>
+
+                <span class="n">Model_name</span> <span class="o">=</span> <span class="n">col</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">make_Model</span><span class="p">(</span> <span class="n">Model_name</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Models.run_Models"><a class="viewcode-back" href="../../_autosummary/ml_pipeline.ML_Models.Models.html#ml_pipeline.ML_Models.Models.run_Models">[docs]</a>    <span class="k">def</span> <span class="nf">run_Models</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;Run each Model&#39;&#39;&#39;</span>
+
+        <span class="k">for</span> <span class="n">Model</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">Model</span><span class="o">.</span><span class="n">to_run</span><span class="p">:</span>
+                <span class="n">Model</span><span class="o">.</span><span class="n">run_pipeline</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Models.get_database_conn"><a class="viewcode-back" href="../../_autosummary/ml_pipeline.ML_Models.Models.html#ml_pipeline.ML_Models.Models.get_database_conn">[docs]</a>    <span class="k">def</span> <span class="nf">get_database_conn</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;get a database connection from said database_conn_params, only needed if you query an Input File&#39;&#39;&#39;</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">database_conn</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">database_conn</span> <span class="o">=</span> <span class="n">ssf</span><span class="o">.</span><span class="n">import_connection_object</span><span class="p">(</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">database_conn_params</span> <span class="p">)</span></div>
+
+    <span class="k">def</span> <span class="nf">delete_results</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">override</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">):</span>
+
+        <span class="n">Dirs_to_delete</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;business_users&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;cached&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;model_pickles&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;results&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;results_sample&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;results_simple&#39;</span><span class="p">],</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;shap&#39;</span><span class="p">],</span>
+            <span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">Dir_to_delete</span> <span class="ow">in</span> <span class="n">Dirs_to_delete</span><span class="p">:</span>
+            <span class="n">Dir_to_delete</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">override</span> <span class="o">=</span> <span class="n">override</span> <span class="p">)</span> <span class="c1">#delete the folder and all contents</span>
+            <span class="n">Dir_to_delete</span><span class="o">.</span><span class="n">create</span><span class="p">()</span> <span class="c1">#create the folder again</span>
+
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;To properly save changes, exit the program&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_import_from_excel</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;imports the features and params from excel &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">wb</span> <span class="o">=</span> <span class="n">cxw</span><span class="o">.</span><span class="n">get_wb</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">excel_Path</span><span class="o">.</span><span class="n">p</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">import_df_features</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_params</span> <span class="o">=</span>   <span class="bp">self</span><span class="o">.</span><span class="n">import_df_params</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">import_df_features</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="k">return</span> <span class="n">cxw</span><span class="o">.</span><span class="n">get_df_from_ws</span><span class="p">(</span> <span class="n">cxw</span><span class="o">.</span><span class="n">get_ws</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURES_SHEET_NAME</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">import_df_params</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="k">return</span> <span class="n">cxw</span><span class="o">.</span><span class="n">get_df_from_ws</span><span class="p">(</span> <span class="n">cxw</span><span class="o">.</span><span class="n">get_ws</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">PARAMETERS_SHEET_NAME</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_export_to_excel</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;Refreshes the params and features&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_export_params</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_export_features</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_export_excel</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_export_excel</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;export the features and parameters dataframes to excel &#39;&#39;&#39;</span>
+
+        <span class="n">ws</span> <span class="o">=</span> <span class="n">cxw</span><span class="o">.</span><span class="n">get_ws</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURES_SHEET_NAME</span><span class="p">)</span>
+        <span class="n">cxw</span><span class="o">.</span><span class="n">clear_all</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
+        <span class="n">cxw</span><span class="o">.</span><span class="n">write_df_to_ws</span><span class="p">(</span> <span class="n">ws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df_features</span> <span class="p">)</span>
+
+        <span class="n">ws</span> <span class="o">=</span> <span class="n">cxw</span><span class="o">.</span><span class="n">get_ws</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wb</span><span class="p">,</span> <span class="n">sheet</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">PARAMETERS_SHEET_NAME</span><span class="p">)</span>
+        <span class="n">cxw</span><span class="o">.</span><span class="n">clear_all</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
+        <span class="n">cxw</span><span class="o">.</span><span class="n">write_df_to_ws</span><span class="p">(</span> <span class="n">ws</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df_params</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_export_params</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;export the Model params for each Model&#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_params</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span><span class="n">mlp</span><span class="o">.</span><span class="n">PARAMETER_COL</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">Model_class_pointer</span><span class="o">.</span><span class="n">EXCEL_PARAMS</span> <span class="p">}</span> <span class="p">)</span>
+        <span class="k">for</span> <span class="n">Model_inst</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
+            <span class="n">Model_inst</span><span class="o">.</span><span class="n">_export_to_df_params</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_export_features</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="sd">&#39;&#39;&#39;Finds all available features from the Input Files, records each Models flag for each feature&#39;&#39;&#39;</span>
+
+        <span class="n">feature_ncols</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">Input_File_inst</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_random_Child</span><span class="p">()</span><span class="o">.</span><span class="n">Input_Files</span><span class="p">:</span>
+                <span class="n">feature_ncols</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="n">Input_File_inst</span><span class="o">.</span><span class="n">get_possible_ncols</span><span class="p">()</span> <span class="p">)</span>
+
+        <span class="n">df_possible_features</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURE_COL</span><span class="p">:</span> <span class="n">feature_ncols</span> <span class="p">}</span> <span class="p">)</span>
+        <span class="n">df_possible_features</span><span class="p">[</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURE_COL</span> <span class="p">]</span> <span class="o">=</span> <span class="n">df_possible_features</span><span class="p">[</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURE_COL</span> <span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span> <span class="nb">str</span> <span class="p">)</span>
+
+        <span class="n">df_existing_excel_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">import_df_features</span><span class="p">()</span>
+
+        <span class="c1"># merge them together, only keeping features that are in df_possible_features</span>
+        <span class="n">df_joined_features</span> <span class="o">=</span> <span class="n">df_possible_features</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span> <span class="n">df_existing_excel_features</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURE_COL</span> <span class="p">)</span>
+
+        <span class="c1"># fill all NaN&#39;s with the default feature flag</span>
+        <span class="n">df_joined_features</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_feature_flag</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df_features</span> <span class="o">=</span> <span class="n">df_joined_features</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span> <span class="n">mlp</span><span class="o">.</span><span class="n">FEATURE_COL</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">exit</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+
+        <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Exiting...&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_export_to_excel</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="init_Models"><a class="viewcode-back" href="../../_autosummary/ml_pipeline.ML_Models.init_Models.html#ml_pipeline.ML_Models.init_Models">[docs]</a><span class="k">def</span> <span class="nf">init_Models</span><span class="p">(</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a name for your Models class: &#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">Models_inst</span> <span class="o">=</span> <span class="n">Models</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">cwd_Dir</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">Models_inst</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
