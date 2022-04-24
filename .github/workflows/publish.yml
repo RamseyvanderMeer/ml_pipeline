@@ -19,7 +19,7 @@ build:
         requirements: src/requirements.txt
         # fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     - name: Build website
-        run: make github_action_docs
+        - run: make github_action_docs
     - name: Commit and Push
         run: |
         git config --global user.name "github-actions[bot]"
