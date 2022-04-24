@@ -363,3 +363,6 @@ def init_Models( **kwargs ):
     if name != '':
         Models_inst = Models( name, ml_pipeline.cwd_Dir, **kwargs )
         return Models_inst
+    else:
+        Models_inst = Models( 'test', ml_pipeline.cwd_Dir, **kwargs )
+        return Models_inst

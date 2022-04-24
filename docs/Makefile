@@ -21,3 +21,13 @@ help:
 	rm -rf _build
 	rm -rf _autosummary
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+# automatic github action push or pull request
+github_action_docs:
+    rm -rf docs
+    mkdir docs && touch docs/.nojekyll
+    @cp -a README.rst docsource/README.rst
+    rm -rf docsource/_build && mkdir docsource/_build
+    rm -rf docsource/_autosummary
+    pipx run poetry run sphinx-build -b html docsource docsource/_build/html
+    @cp -a docsource/_build/html/* docs

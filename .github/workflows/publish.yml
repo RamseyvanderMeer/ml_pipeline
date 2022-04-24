@@ -1,0 +1,39 @@
+name: gh-pages publisher 🚀
+
+on:
+push:
+    branches: [master]
+pull_request:
+    branches: [master]
+
+jobs:
+build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8.5
+        uses: actions/setup-python@v2
+        with:
+        # Semantic version range syntax or exact version of a Python version
+        python-version: "3.8.5"
+        # Optional - x64 or x86 architecture, defaults to x64
+        architecture: "x64"
+    # You can test your matrix by printing the current Python version
+    - name: Install pipx
+        run: python3 -m pip install --user pipx==0.16.0.0
+    - name: install theme
+        run: pip install sphinx_rtd_theme
+    - name: Install requirements
+        with:
+          requirements: src/requirements.txt
+    - name: Build website
+        run: make github_action_docs
+    - name: Commit and Push
+        run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        # use account 'github-actions[bot]' to set the git config
+        git add docs
+        git commit -m "new github pages"
+        git push
