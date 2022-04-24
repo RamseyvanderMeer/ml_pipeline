@@ -74,7 +74,6 @@ Running all Models
 Author(s)
 ===============
 * James Kabbes
-* Ramsey van der Meer
 
 
 
