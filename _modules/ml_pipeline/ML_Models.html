@@ -429,6 +429,9 @@
     <span class="n">name</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter a name for your Models class: &#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
         <span class="n">Models_inst</span> <span class="o">=</span> <span class="n">Models</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">cwd_Dir</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="n">Models_inst</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">Models_inst</span> <span class="o">=</span> <span class="n">Models</span><span class="p">(</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">cwd_Dir</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span>
         <span class="k">return</span> <span class="n">Models_inst</span></div>
 </pre></div>
 
