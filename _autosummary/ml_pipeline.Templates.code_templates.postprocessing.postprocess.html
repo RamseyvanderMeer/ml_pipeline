@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ml_pipeline.Templates.code_templates.postprocessing.postprocess &mdash; ml-pipeline 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/readthedocs-custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ml_pipeline.Templates.code_templates.preprocessing" href="ml_pipeline.Templates.code_templates.preprocessing.html" />
+    <link rel="prev" title="ml_pipeline.Templates.code_templates.postprocessing" href="ml_pipeline.Templates.code_templates.postprocessing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ml-pipeline
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home page</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="ml_pipeline.html">ml_pipeline</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_Feature.html">ml_pipeline.ML_Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_Features.html">ml_pipeline.ML_Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_Input_File.html">ml_pipeline.ML_Input_File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_Input_Files.html">ml_pipeline.ML_Input_Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_Model.html">ml_pipeline.ML_Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_Models.html">ml_pipeline.ML_Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_ParentClass.html">ml_pipeline.ML_ParentClass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_params.html">ml_pipeline.ML_params</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.ML_support.html">ml_pipeline.ML_support</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="ml_pipeline.Templates.html">ml_pipeline.Templates</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ml_pipeline.Templates.code_templates.html">ml_pipeline.Templates.code_templates</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ml_pipeline.Templates.code_templates.algorithm.html">ml_pipeline.Templates.code_templates.algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ml_pipeline.Templates.code_templates.generic_cleaning.html">ml_pipeline.Templates.code_templates.generic_cleaning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ml_pipeline.Templates.code_templates.joining.html">ml_pipeline.Templates.code_templates.joining</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="ml_pipeline.Templates.code_templates.postprocessing.html">ml_pipeline.Templates.code_templates.postprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ml_pipeline.Templates.code_templates.preprocessing.html">ml_pipeline.Templates.code_templates.preprocessing</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ml_pipeline.Templates.main_class_templates.html">ml_pipeline.Templates.main_class_templates</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.mymodule1.html">ml_pipeline.mymodule1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.mymodule2.html">ml_pipeline.mymodule2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ml_pipeline.mysubpackage.html">ml_pipeline.mysubpackage</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ml-pipeline</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="ml_pipeline.html">ml_pipeline</a> &raquo;</li>
+          <li><a href="ml_pipeline.Templates.html">ml_pipeline.Templates</a> &raquo;</li>
+          <li><a href="ml_pipeline.Templates.code_templates.html">ml_pipeline.Templates.code_templates</a> &raquo;</li>
+          <li><a href="ml_pipeline.Templates.code_templates.postprocessing.html">ml_pipeline.Templates.code_templates.postprocessing</a> &raquo;</li>
+      <li>ml_pipeline.Templates.code_templates.postprocessing.postprocess</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ml-pipeline-templates-code-templates-postprocessing-postprocess">
+<h1>ml_pipeline.Templates.code_templates.postprocessing.postprocess<a class="headerlink" href="#ml-pipeline-templates-code-templates-postprocessing-postprocess" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="ml_pipeline.Templates.code_templates.postprocessing.postprocess">
+<span class="sig-name descname"><span class="pre">postprocess</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Model_inst</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ml_pipeline/Templates/code_templates/postprocessing.html#postprocess"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ml_pipeline.Templates.code_templates.postprocessing.postprocess" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform postprocessing on the Results Dataframe and turn it into the Postprocessed DataFrame (df_post)</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ml_pipeline.Templates.code_templates.postprocessing.html" class="btn btn-neutral float-left" title="ml_pipeline.Templates.code_templates.postprocessing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ml_pipeline.Templates.code_templates.preprocessing.html" class="btn btn-neutral float-right" title="ml_pipeline.Templates.code_templates.preprocessing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
