@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_pipeline.ML_Model &mdash; ml-pipeline 1.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/readthedocs-custom.css" type="text/css" />
+  <title>src.ml_pipeline.ML_Model &mdash; ml-pipeline 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/readthedocs-custom.css" type="text/css" />
   <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -25,10 +25,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> ml-pipeline
+            <a href="../../../index.html" class="icon icon-home"> ml-pipeline
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -37,8 +37,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/src.ml_pipeline.html">1. ml_pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/src.ml_pipeline.html">1. ml_pipeline</a></li>
 </ul>
 
         </div>
@@ -47,16 +47,16 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">ml-pipeline</a>
+          <a href="../../../index.html">ml-pipeline</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>ml_pipeline.ML_Model</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>src.ml_pipeline.ML_Model</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -65,7 +65,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for ml_pipeline.ML_Model</h1><div class="highlight"><pre>
+  <h1>Source code for src.ml_pipeline.ML_Model</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">ml_pipeline</span>
 <span class="kn">import</span> <span class="nn">ml_pipeline.ML_params</span> <span class="k">as</span> <span class="nn">mlp</span>
 <span class="kn">import</span> <span class="nn">ml_pipeline.ML_support</span> <span class="k">as</span> <span class="nn">mlsf</span>
@@ -77,7 +77,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<span class="k">class</span> <span class="nc">Model</span><span class="p">(</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_ParentClass</span><span class="o">.</span><span class="n">ML_ParentClass</span> <span class="p">):</span>
+<div class="viewcode-block" id="Model"><a class="viewcode-back" href="../../../_autosummary/src.ml_pipeline.ML_Model.Model.html#src.ml_pipeline.ML_Model.Model">[docs]</a><span class="k">class</span> <span class="nc">Model</span><span class="p">(</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_ParentClass</span><span class="o">.</span><span class="n">ML_ParentClass</span> <span class="p">):</span>
 
     <span class="n">SUFFIX</span> <span class="o">=</span> <span class="s1">&#39;_MODEL&#39;</span>
 
@@ -258,7 +258,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">Input_Files</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">Input_Files_class_pointer</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">class_pointer_params</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="Model.print_imp_atts"><a class="viewcode-back" href="../../_autosummary/src.ml_pipeline.Templates.main_class_templates.Model.Model.html#src.ml_pipeline.Templates.main_class_templates.Model.Model.print_imp_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_imp_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">):</span> <span class="c1">#if print_off==True, returns None, else: returns str</span>
+<div class="viewcode-block" id="Model.print_imp_atts"><a class="viewcode-back" href="../../../_autosummary/src.ml_pipeline.ML_Model.Model.html#src.ml_pipeline.ML_Model.Model.print_imp_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_imp_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">):</span> <span class="c1">#if print_off==True, returns None, else: returns str</span>
 
         <span class="n">atts_and_display_names</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span>
@@ -277,7 +277,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_string</span><span class="p">(</span> <span class="n">string</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="n">print_off</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Model.print_one_line_atts"><a class="viewcode-back" href="../../_autosummary/src.ml_pipeline.Templates.main_class_templates.Model.Model.html#src.ml_pipeline.Templates.main_class_templates.Model.Model.print_one_line_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_one_line_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">leading_string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="p">):</span>  <span class="c1">#if print_off==True, returns None, else: returns str</span>
+<div class="viewcode-block" id="Model.print_one_line_atts"><a class="viewcode-back" href="../../../_autosummary/src.ml_pipeline.ML_Model.Model.html#src.ml_pipeline.ML_Model.Model.print_one_line_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_one_line_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">print_off</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">leading_string</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="p">):</span>  <span class="c1">#if print_off==True, returns None, else: returns str</span>
 
         <span class="n">atts_and_display_names</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;type&#39;</span><span class="p">,</span>
@@ -411,7 +411,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">shap</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">end_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pipeline Completed in &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; seconds.&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pipeline Completed in &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">end_time</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">start_time</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; seconds.&#39;</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

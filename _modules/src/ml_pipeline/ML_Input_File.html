@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_pipeline.ML_Input_File &mdash; ml-pipeline 1.0 documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/readthedocs-custom.css" type="text/css" />
+  <title>src.ml_pipeline.ML_Input_File &mdash; ml-pipeline 1.0 documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/readthedocs-custom.css" type="text/css" />
   <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -25,10 +25,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> ml-pipeline
+            <a href="../../../index.html" class="icon icon-home"> ml-pipeline
           </a>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -37,8 +37,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Table of Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../_autosummary/src.ml_pipeline.html">1. ml_pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">Home page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../_autosummary/src.ml_pipeline.html">1. ml_pipeline</a></li>
 </ul>
 
         </div>
@@ -47,16 +47,16 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">ml-pipeline</a>
+          <a href="../../../index.html">ml-pipeline</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Module code</a> &raquo;</li>
-      <li>ml_pipeline.ML_Input_File</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>src.ml_pipeline.ML_Input_File</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -65,7 +65,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for ml_pipeline.ML_Input_File</h1><div class="highlight"><pre>
+  <h1>Source code for src.ml_pipeline.ML_Input_File</h1><div class="highlight"><pre>
 <span></span><span class="c1">### ML-Pipeline</span>
 <span class="kn">import</span> <span class="nn">ml_pipeline</span>
 <span class="kn">import</span> <span class="nn">ml_pipeline.ML_support</span> <span class="k">as</span> <span class="nn">mlsf</span>
@@ -76,7 +76,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<span class="k">class</span> <span class="nc">Input_File</span><span class="p">(</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_ParentClass</span><span class="o">.</span><span class="n">ML_ParentClass</span> <span class="p">):</span>
+<div class="viewcode-block" id="Input_File"><a class="viewcode-back" href="../../../_autosummary/src.ml_pipeline.ML_Input_File.Input_File.html#src.ml_pipeline.ML_Input_File.Input_File">[docs]</a><span class="k">class</span> <span class="nc">Input_File</span><span class="p">(</span> <span class="n">ml_pipeline</span><span class="o">.</span><span class="n">ML_ParentClass</span><span class="o">.</span><span class="n">ML_ParentClass</span> <span class="p">):</span>
 
     <span class="n">SUFFIX</span> <span class="o">=</span> <span class="s1">&#39;_INPUT_FILE&#39;</span>
 
@@ -147,11 +147,11 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_sample_Path</span> <span class="o">=</span> <span class="n">do</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;cleaned_samples&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cleaned_sample_extension</span> <span class="p">)</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">query_export_Path</span> <span class="o">=</span>   <span class="n">do</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">Models</span><span class="o">.</span><span class="n">data_Dirs</span><span class="p">[</span><span class="s1">&#39;query_results_staging&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_Path</span><span class="o">.</span><span class="n">filename</span> <span class="p">)</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="Input_File.print_imp_atts"><a class="viewcode-back" href="../../_autosummary/src.ml_pipeline.Templates.main_class_templates.Input_File.Input_File.html#src.ml_pipeline.Templates.main_class_templates.Input_File.Input_File.print_imp_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_imp_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
+<div class="viewcode-block" id="Input_File.print_imp_atts"><a class="viewcode-back" href="../../../_autosummary/src.ml_pipeline.ML_Input_File.Input_File.html#src.ml_pipeline.ML_Input_File.Input_File.print_imp_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_imp_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_imp_atts_helper</span><span class="p">(</span> <span class="n">atts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">,</span><span class="s1">&#39;nickname&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Input_File.print_one_line_atts"><a class="viewcode-back" href="../../_autosummary/src.ml_pipeline.Templates.main_class_templates.Input_File.Input_File.html#src.ml_pipeline.Templates.main_class_templates.Input_File.Input_File.print_one_line_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_one_line_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
+<div class="viewcode-block" id="Input_File.print_one_line_atts"><a class="viewcode-back" href="../../../_autosummary/src.ml_pipeline.ML_Input_File.Input_File.html#src.ml_pipeline.ML_Input_File.Input_File.print_one_line_atts">[docs]</a>    <span class="k">def</span> <span class="nf">print_one_line_atts</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_print_one_line_atts_helper</span><span class="p">(</span> <span class="n">atts</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">,</span><span class="s1">&#39;root&#39;</span><span class="p">,</span><span class="s1">&#39;nickname&#39;</span><span class="p">],</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span></div>
 
@@ -203,7 +203,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">export_cleaned</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">export_cleaned_sample</span><span class="p">()</span>
 
-<div class="viewcode-block" id="Input_File.clean"><a class="viewcode-back" href="../../_autosummary/src.ml_pipeline.Templates.main_class_templates.Input_File.Input_File.html#src.ml_pipeline.Templates.main_class_templates.Input_File.Input_File.clean">[docs]</a>    <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
+<div class="viewcode-block" id="Input_File.clean"><a class="viewcode-back" href="../../../_autosummary/src.ml_pipeline.ML_Input_File.Input_File.html#src.ml_pipeline.ML_Input_File.Input_File.clean">[docs]</a>    <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span> <span class="bp">self</span> <span class="p">):</span>
 
         <span class="sd">&quot;&quot;&quot;this needs to be defined by a child class&quot;&quot;&quot;</span>
         <span class="k">pass</span></div>
@@ -306,7 +306,7 @@
         <span class="n">mlsf</span><span class="o">.</span><span class="n">export_df</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span>  <span class="s1">&#39;df_raw_sample&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_sample_Path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">export_query_staging</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">):</span>
-        <span class="n">mlsf</span><span class="o">.</span><span class="n">export_df</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span>  <span class="s1">&#39;df_query&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_export_Path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span>
+        <span class="n">mlsf</span><span class="o">.</span><span class="n">export_df</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span>  <span class="s1">&#39;df_query&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_export_Path</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="p">)</span></div>
 </pre></div>
 
            </div>
