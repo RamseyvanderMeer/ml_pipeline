@@ -23,7 +23,10 @@ jobs:
       - name: ls
         run: |
           ls
-          mkdir _autosummary
+          git add _autosummary/
+          git commit -am "_autosummary"
+          git push origin gh-pages
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
