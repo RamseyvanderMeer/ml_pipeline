@@ -48,7 +48,7 @@ nbsphinx_allow_errors = True  # Continue through Jupyter errors
 #autodoc_typehints = "description" # Sphinx-native method. Not as good as sphinx_autodoc_typehints
 add_module_names = False # Remove namespaces from class/method signatures
 
-html_static_path = ["_autosummary/"]
+html_static_path = ["docs/_build/html/_autosummary/"]
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
