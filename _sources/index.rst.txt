@@ -92,4 +92,4 @@ Contributor(s)
 
       Home page <self>
 
-      ml_pipeline <_autosummary/src>
+      ml_pipeline <_autosummary/src.ml_pipeline>
