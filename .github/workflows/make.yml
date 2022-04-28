@@ -23,7 +23,7 @@ jobs:
       - name: ls
         run: |
           ls
-          git add _autosummary/
+          git add -f _autosummary/
           git commit -am "_autosummary"
           git push origin gh-pages
 
