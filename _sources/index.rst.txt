@@ -92,4 +92,6 @@ Contributor(s)
 
       Home page <self>
 
+      .. place to insert new path
+
       ml_pipeline <_autosummary/src.ml_pipeline>
