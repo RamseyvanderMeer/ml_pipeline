@@ -81,10 +81,15 @@ Contributor(s)
 
 
 
+
+
+
+
+
 .. toctree::
       :numbered:
       :caption: Table of Contents
 
       Home page <self>
 
-      ml_pipeline <_autosummary/src.ml_pipeline>
+      ml_pipeline <_autosummary/ml_pipeline>
