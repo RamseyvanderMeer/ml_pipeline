@@ -1,0 +1,32 @@
+﻿ml\_pipeline.ML\_ParentClass
+============================
+
+.. automodule:: ml_pipeline.ML_ParentClass
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+      :nosignatures:
+   
+      ML_ParentClass
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,53 @@
+ml\_pipeline.ML\_ParentClass.ML\_ParentClass
+============================================
+
+.. currentmodule:: ml_pipeline.ML_ParentClass
+
+.. autoclass:: ML_ParentClass
+   :members:
+   :show-inheritance:
+   :inherited-members:
+   :special-members: __call__, __add__, __mul__
+
+   
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+      :nosignatures:
+   
+      ~ML_ParentClass.custom_func
+      ~ML_ParentClass.do_nothing
+      ~ML_ParentClass.exit
+      ~ML_ParentClass.format_string_by_atts
+      ~ML_ParentClass.get_attr
+      ~ML_ParentClass.get_atts
+      ~ML_ParentClass.get_random_Child
+      ~ML_ParentClass.has_attr
+      ~ML_ParentClass.has_atts
+      ~ML_ParentClass.lambda_on_Children
+      ~ML_ParentClass.open_Child_user
+      ~ML_ParentClass.print_all_atts
+      ~ML_ParentClass.print_atts
+      ~ML_ParentClass.print_class_type
+      ~ML_ParentClass.print_imp_atts
+      ~ML_ParentClass.print_one_line_atts
+      ~ML_ParentClass.print_string
+      ~ML_ParentClass.run
+      ~ML_ParentClass.run_method
+      ~ML_ParentClass.select_Child_user
+      ~ML_ParentClass.select_Children_where
+      ~ML_ParentClass.set_attr
+      ~ML_ParentClass.set_atts
+   
+   
+
+   
+   
+   .. rubric:: Attributes
+
+   .. autosummary::
+   
+      ~ML_ParentClass.BASE_OPTIONS
+   
+   
