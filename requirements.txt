@@ -9,4 +9,4 @@ matplotlib
 shap
 scikit-learn
 sphinx_rtd_theme
-ml_pipeline
+kabbes_ml_pipeline
