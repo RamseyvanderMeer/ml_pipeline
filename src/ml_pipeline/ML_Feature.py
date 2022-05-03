@@ -5,6 +5,17 @@ from ml_pipeline import ML_support as mlsf
 
 
 class Feature( ML_ParentClass.ML_ParentClass ):
+    """class Feature
+
+    Args:
+        ML_ParentClass (_type_): _description_
+
+    Raises:
+        StopIteration: _description_
+
+    Returns:
+        _type_: _description_
+    """
 
     SUFFIX = '_FEATURE'
     DEFAULT_KWARGS = {
