@@ -79,16 +79,13 @@ Author(s)
 
 
 .. toctree::
+      :caption: Table of Contents
+      :name: mastertoc
+      :numbered:
 
-   Home page <self>
-   ml_pipeline <_autosummary/ml_pipeline>
+      Home page <self>
+      ml_pipeline <_autosummary/src>
 
 
 
 
-.. autosummary::
-   :toctree: _autosummary
-   :template: custom-module-template.rst
-   :recursive:
-
-   ml_pipeline
