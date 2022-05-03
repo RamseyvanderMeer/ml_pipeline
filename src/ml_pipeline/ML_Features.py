@@ -117,6 +117,12 @@ class Features( ml_pipeline.ML_ParentClass.ML_ParentClass ):
     ###
     def add_col( self, col, flag = None ):
 
+        """add column
+
+        Returns:
+            _type_: _description_
+        """
+
         ncol = self.col_to_ncol( col )
         if flag == None:
             flag = max(self.Models.feature_flag_codes.keys())
