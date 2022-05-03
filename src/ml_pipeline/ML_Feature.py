@@ -3,6 +3,14 @@ import ml_pipeline
 from ml_pipeline import ML_ParentClass
 from ml_pipeline import ML_support as mlsf
 
+"""ML_feature class file
+
+Raises:
+    StopIteration: _description_
+
+Returns:
+    _type_: class
+"""
 
 class Feature( ML_ParentClass.ML_ParentClass ):
     """class Feature
