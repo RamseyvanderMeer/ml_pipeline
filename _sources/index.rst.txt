@@ -82,3 +82,13 @@ Author(s)
 
    Home page <self>
    ml_pipeline <_autosummary/ml_pipeline>
+
+
+
+
+.. autosummary::
+   :toctree: _autosummary
+   :template: custom-module-template.rst
+   :recursive:
+
+   ml_pipeline
