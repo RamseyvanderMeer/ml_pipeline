@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ml_pipeline: &mdash; ml-pipeline 1.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <title>ml_pipeline: &mdash; ml-pipeline 1.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/readthedocs-custom.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="ml_pipeline" href="_autosummary/ml_pipeline.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,7 +36,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_autosummary/ml_pipeline.html">ml_pipeline</a></li>
 </ul>
 
         </div>
@@ -65,32 +61,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ml-pipeline">
+  <div class="section" id="ml-pipeline">
 <h1>ml_pipeline:<a class="headerlink" href="#ml-pipeline" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
-<section id="about">
+<div class="section" id="about">
 <h2>About<a class="headerlink" href="#about" title="Permalink to this headline">¶</a></h2>
 <p>A centralized pattern for creating Machine Learning pipelines</p>
-</section>
-<section id="description">
+</div>
+<div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
 <p>Contains a host of tools for standardizing the format of machine learning pipelines. Provides methods for querying databases, cleaning data, preprocessing data, model operations, exporting results, and more. Each machine learning project is a “child” of this template, with the ability to overwrite any of the default class attributes/methods.</p>
-</section>
-<section id="code-overview">
+</div>
+<div class="section" id="code-overview">
 <h2>Code Overview<a class="headerlink" href="#code-overview" title="Permalink to this headline">¶</a></h2>
 <p>Read this high-level overview is necessary to understand how the package operates.</p>
 <p>Code Hierarchy Models → Model → Input_Files → Input_File → Features → Feature</p>
 <p>Each point in the hierarchy has certain methods and attributes associated with it. These methods give you the functionality for operating the pipeline.</p>
-</section>
-<section id="first-time-setup">
+</div>
+<div class="section" id="first-time-setup">
 <h2>First Time Setup<a class="headerlink" href="#first-time-setup" title="Permalink to this headline">¶</a></h2>
 <p>If you have not installed the garden, follow the instructions here: <a class="reference external" href="https://www.github.com/jameskabbes/the_garden">the_garden</a></p>
-</section>
-<section id="usage">
+</div>
+<div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
 <p>High-level overviews for common operations. For more detailed instructions, checkout the Pages.</p>
-</section>
-<section id="initializing-a-repo-for-ml-pipeline">
+</div>
+<div class="section" id="initializing-a-repo-for-ml-pipeline">
 <h2>Initializing a Repo for ml_pipeline<a class="headerlink" href="#initializing-a-repo-for-ml-pipeline" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Navigate to a directory in the command prompt</p>
@@ -104,8 +100,8 @@
 </div></blockquote>
 </li>
 </ol>
-</section>
-<section id="navigating-the-menu">
+</div>
+<div class="section" id="navigating-the-menu">
 <h2>Navigating the Menu<a class="headerlink" href="#navigating-the-menu" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Run python main_XXX.py This opens the Models options screen, along with the options for the “Models” class instance.</p></li>
@@ -116,8 +112,8 @@
 <li><p>Option 1 shows “Open XXXXX” to navigate to the next level down in the tree.</p></li>
 <li><p>Press enter to exit back up to the previous level.</p></li>
 </ol>
-</section>
-<section id="query-new-raw-data">
+</div>
+<div class="section" id="query-new-raw-data">
 <h2>Query new Raw Data<a class="headerlink" href="#query-new-raw-data" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>python main_XXX.py</p></li>
@@ -129,22 +125,22 @@
 <li><p>Select the Input File for which you would like to query new data.</p></li>
 <li><p>In the Input File options screen, select “Query from Source Database”</p></li>
 </ol>
-</section>
-<section id="move-query-staged-data-to-raw-data">
+</div>
+<div class="section" id="move-query-staged-data-to-raw-data">
 <h2>Move Query Staged data to Raw Data<a class="headerlink" href="#move-query-staged-data-to-raw-data" title="Permalink to this headline">¶</a></h2>
 <p>1. python main_XXX.py
 2.At the Models options screen, select the option for “Open Model”
 3. Select the Model you would like to run
 4.In the Model options screen, select the option for “Run Pipeline”</p>
-</section>
-<section id="running-all-models">
+</div>
+<div class="section" id="running-all-models">
 <h2>Running all Models<a class="headerlink" href="#running-all-models" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>python main_XXX.py</p></li>
 <li><p>At the Models options screen, select the option for “Run Models”</p></li>
 </ol>
-</section>
-<section id="author-s">
+</div>
+<div class="section" id="author-s">
 <h2>Author(s)<a class="headerlink" href="#author-s" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>James Kabbes</p></li>
@@ -152,24 +148,15 @@
 <div class="toctree-wrapper compound">
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="_autosummary/ml_pipeline.html">ml_pipeline</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="_autosummary/ml_pipeline.ML_ParentClass.html">ml_pipeline.ML_ParentClass</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="_autosummary/ml_pipeline.ML_ParentClass.ML_ParentClass.html">ml_pipeline.ML_ParentClass.ML_ParentClass</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="_autosummary/ml_pipeline.html" class="btn btn-neutral float-right" title="ml_pipeline" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
