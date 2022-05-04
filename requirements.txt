@@ -10,3 +10,4 @@ shap
 scikit-learn
 sphinx_rtd_theme
 kabbes_ml_pipeline
+ml_pipeline
