@@ -10,3 +10,4 @@ matplotlib
 shap
 scikit-learn
 sphinx_rtd_theme
+ipython
