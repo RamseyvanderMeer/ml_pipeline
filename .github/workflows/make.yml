@@ -11,6 +11,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install sphinx_rtd_theme
           pip install kabbes_ml_pipeline
+          ls
+          cd src
+          echo "***************"
+          ls
+          cd ml_pipeline
+          echo "***************"
+          ls
+          cd ..
+          cd ..
       - uses: actions/checkout@master
         with:
           requirements: src/requirements.txt
