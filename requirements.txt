@@ -1,8 +1,10 @@
-kabbes_py_starter>=0.7.0
-kabbes_parent_class>=0.4.0
-kabbes_dir_ops>=0.5.0
-kabbes_analytics_packages>=0.4.0
-kabbes_database_connections>=0.3.0
+kabbes-analytics-packages==0.4.0
+kabbes-database-connections==0.4.0
+kabbes-dir-ops==0.6.0
+kabbes-ml-pipeline==0.5.0
+kabbes-parent-class==0.4.0
+kabbes-py-starter==0.7.0
+kabbes-user-profile==0.7.0
 kabbes_ml_pipeline
 pandas
 numpy
@@ -10,4 +12,5 @@ matplotlib
 shap
 scikit-learn
 sphinx_rtd_theme
+sphinx-autodoc-typehints
 ipython
